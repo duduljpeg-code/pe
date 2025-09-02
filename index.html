@@ -1,43 +1,65 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kulkalkirkur</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Kalkulator Ilmiah</title>
 </head>
 <body>
-    <div id="lockscreen" class="lockscreen">
-        <input type="password" id="password" placeholder="Masukkan kata sandi">
-        <button onclick="unlock()">Unlock</button>
-    </div>
-    <div id="calculator" class="calculator" style="display: none;">
-        <input type="text" id="display" disabled>
-        <div class="buttons">
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('/')">/</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('*')">*</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculateResult()">=</button>
-            <button onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('Math.sqrt(')">√</button>
-            <button onclick="appendToDisplay('Math.pow(')">x²</button>
-            <button onclick="appendToDisplay('Math.sin(')">sin</button>
-            <button onclick="appendToDisplay('Math.cos(')">cos</button>
-            <button onclick="appendToDisplay('Math.tan(')">tan</button>
+    <div class="calculator-container">
+        <div class="calculator-header">
+            <h1>Kulkalkirkur</h1>
+            <p>peropesional kalkulkirkur</p>
+        </div>
+        <div class="calculator">
+            <div class="display">
+                <div class="memory-indicator" id="memoryIndicator" style="display: none;">M</div>
+                <div class="history" id="history"></div>
+                <input type="text" class="display-screen" id="display" value="0" readonly>
+            </div>
+
+            <div class="buttons">
+                <!-- Row 1 -->
+                <button class="btn btn-function" onclick="clearMemory()">MC</button>
+                <button class="btn btn-function" onclick="recallMemory()">MR</button>
+                <button class="btn btn-function" onclick="addToMemory()">M+</button>
+                <button class="btn btn-function" onclick="subtractFromMemory()">M-</button>
+
+                <!-- Row 2 -->
+                <button class="btn btn-clear" onclick="clearAll()">C</button>
+                <button class="btn btn-function" onclick="clearEntry()">CE</button>
+                <button class="btn btn-function" onclick="deleteLast()">⌫</button>
+                <button class="btn btn-operator" onclick="inputOperator('/')" id="divide">÷</button>
+
+                <!-- Row 3 -->
+                <button class="btn btn-number" onclick="inputNumber('7')">7</button>
+                <button class="btn btn-number" onclick="inputNumber('8')">8</button>
+                <button class="btn btn-number" onclick="inputNumber('9')">9</button>
+                <button class="btn btn-operator" onclick="inputOperator('*')" id="multiply">×</button>
+
+                <!-- Row 4 -->
+                <button class="btn btn-number" onclick="inputNumber('4')">4</button>
+                <button class="btn btn-number" onclick="inputNumber('5')">5</button>
+                <button class="btn btn-number" onclick="inputNumber('6')">6</button>
+                <button class="btn btn-operator" onclick="inputOperator('-')" id="subtract">-</button>
+
+                <!-- Row 5 -->
+                <button class="btn btn-number" onclick="inputNumber('1')">1</button>
+                <button class="btn btn-number" onclick="inputNumber('2')">2</button>
+                <button class="btn btn-number" onclick="inputNumber('3')">3</button>
+                <button class="btn btn-operator" onclick="inputOperator('+')" id="add">+</button>
+
+                <!-- Row 6 -->
+                <button class="btn btn-number btn-zero" onclick="inputNumber('0')">0</button>
+                <button class="btn btn-function" onclick="inputDecimal()">.</button>
+                <button class="btn btn-equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Kalkulkirkur B+y Ridho Jeung Hanan</p>
         </div>
     </div>
     <script src="script.js"></script>
-</body>
 </html>
